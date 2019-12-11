@@ -1,0 +1,19 @@
+version:  '3.7'
+
+services:
+  mongodb:
+    build: ./MongoDB
+    ports:
+     - 27017:27017
+    restart: on-failure
+    # environment:
+    volumes:
+     - ./MongoDB/backups:/backups
+     - ./MongoDB/script:/script
+     - ./MongoDB/bdd:/data/db
+
+    networks: 
+     - backend
+
+networks: 
+  backend:
