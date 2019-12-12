@@ -1,33 +1,17 @@
-# Find-my-CVE
+# CVE_Download
 
-## Problématique
+Download cvedetails.com's CVEs by product in JSON format.
 
-Créer une application qui, dans un premier temps, liste les CVE en parsant le code fourni par l'utilisateur. Dans un second temps teste les vulnérabilités et les exploits pour démontrer l'ampleur de la faille. Et dans un troisième temps va donner les bonnes pratiques et comment corriger le code.
+## Install
 
-## Fonctionalités
+```
+git clone https://github.com/lukihd/Find-my-CVE/tree/cve_download
+```
 
-### site
+## Usage
 
-#### Formulaire de l'audit
+```
+./cve_dl.sh --id </xxx/yyy> --prod <product-name> --pages <total-of-pages>
+```
 
-* dossier / lien du git
-* nom
-* date
-* techno à auditer
-
-* techno utilisés
-
-bonus :
-
-* à qui envoyer (txt)
-
-#### bonus 
-* Connexion / Inscription
-* historique
-
-### app
-
-#### Liste des CVE par technos
-
-* stockés dans une bdd Document
-* triés par technos
+### This script is not finished
