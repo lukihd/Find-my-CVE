@@ -11,14 +11,14 @@ git clone https://github.com/lukihd/Find-my-CVE/tree/cve_download
 ## Usage
 
 ```
-./cve_dl.sh --id </xxx/yyy> --prod <product-name> --pages <total-of-pages>
+./cve_dl.sh --id </xxx/yyy> --prod </product-name> --pages <total-of-pages>
 ```
 
 ## help
 
 ```
 ./cve-dl.sh --help
-Usage : ./test.sh --id </xxx/yyy> --prod <product-name> --pages <total-of-pages>
+Usage : ./test.sh --id </xxx/yyy> --prod </product-name> --pages <total-of-pages>
 
 xxx -> vendor_id
 yyy -> product_id
