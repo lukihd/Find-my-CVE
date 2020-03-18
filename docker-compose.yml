@@ -7,7 +7,7 @@ services:
     - 27017:27017
     restart: on-failure
     environment:
-    - MONGO_INITDB_DATABASE=find_my_cvf
+    - MONGO_INITDB_DATABASE=find_my_cve
     - MONGO_INITDB_ROOT_USERNAME=root
     - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
