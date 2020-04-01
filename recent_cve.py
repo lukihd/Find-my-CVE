@@ -6,28 +6,30 @@ from bs4 import BeautifulSoup
 #Step 1: Connect to MongoDB - Note: Change connection string as needed
 client = MongoClient("mongodb://root:password@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false")
 db=client.findmycve
-#Step 2: Create sample data
+#Step 2: Récupérer le flux des dernières CVE
 last_cve = requests.get("http://www.cvedetails.com/json-feed.php?numrows=10&vendor_id=0&product_id=0&version_id=0&hasexp=1&opec=1&opov=1&opcsrf=1&opfileinc=1&opgpriv=1&opsqli=1&opxss=1&opdirt=1&opmemc=1&ophttprs=1&opbyp=1&opginf=1&opdos=1&orderby=2&cvssscoremin=0")
 curl = last_cve.text
-curlpur = curl.replace('\n', '').replace('\r', '').replace('\\', '').replace('//', '')
 jsondatas = json.loads(curl)
 print(jsondatas[2])
+#Step 3: on boucle sur les dernières CVE pour accéder à chacun de leurs urls, et récupérer le reste des données
 for json_data in jsondatas:
-    #Step 3: Insert business object directly into MongoDB via isnert_one
     print(json_data['url'])
     url=json_data['url']
     http = urllib3.PoolManager()
     response = http.request('GET', url)
+    #Step 4 : on parse la page html pour obtenir le tableau des données (CVE Score, etc.)
     soup = BeautifulSoup(response.data.decode('utf-8'), "html.parser")
     table = soup.find(lambda tag: tag.name=='table' and tag.has_attr('id') and tag['id']=="cvssscorestable")
+    #Step 5 : on enlève les données qui sont en double par rapport au premier appel de l'API
     soup.find('th', string="CVSS Score").decompose() 
     soup.find('th', string="CWE ID").decompose()   
     keys = [th.get_text(strip=True)for th in table.find_all('th')]
     values = [td.get_text(strip=True) for td in table.find_all('td')]
+    #Step 6 : on regroupe les données dans un seul et même dictionnaire, qu'on push ensuite dans la DB Mongo
     d = dict(zip(keys, values))
     print(d)
     x = json_data.copy()
     x.update(d)
     result=db.reviews.insert_one(x)
-#Step 5: Tell us that you are done
+#Step 7 : Tell us that you are done
 print('finished inserting recent CVEs')
