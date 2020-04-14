@@ -25,11 +25,16 @@ for json_data in jsondatas:
     soup.find('th', string="CWE ID").decompose()   
     keys = [th.get_text(strip=True)for th in table.find_all('th')]
     values = [td.get_text(strip=True) for td in table.find_all('td')]
+    k=[]
+    for i in keys :
+        j = i.replace(' ','').replace('(', '').replace(')', '')
+        k.append(j)
     #Step 6 : on regroupe les données dans un seul et même dictionnaire, qu'on push ensuite dans la DB Mongo
-    d = dict(zip(keys, values))
+    d = dict(zip(k, values))
     print(d)
     x = json_data.copy()
     x.update(d)
-    result=db.reviews.insert_one(x)
+    if db.reviews.count_documents(x) == 0:
+        result=db.reviews.insert_one(x)
 #Step 7 : Tell us that you are done
 print('finished inserting recent CVEs')

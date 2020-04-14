@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Find my CVE</title>
 	<link type="text/css" rel="stylesheet" href="../static/assets/style.css" />
+	<link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -12,17 +13,57 @@
 		<div class="content_CVE">
 
 			<div class="CVE_treat">
-                {% for r in results %}
-                   {% for r2 in r %}
-                        <h1>{{r2.cve_id}}</h1>
-                        <p>{{r2.summary}}</p>
-                   {% endfor %}
-                
-                {% endfor %}
 
-             
 
-			</div>
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>CVE ID</th>
+              <th>CWE ID</th>
+              <th>Summary</th>
+              <th>CVSS Score</th>
+			  <th>Publish date</th>
+			  <th>Update date</th>
+			  <th>Confidentiality Impact</th>
+			  <th>Integrity Impact</th>
+			  <th>Availability Impact</th>
+			  <th>Access complexity</th>
+			  <th>Authentication</th>
+			  <th>Gained access</th>
+			  <th>Vuln Type</th>
+
+            </tr>
+          </thead>
+          <tbody>
+			{% for r in results %}
+				{% for r2 in r %}
+				<tr>
+					<h1><td>{{r2.cve_id}}</td></h1>
+					<td><p>{{r2.cwe_id}}</p></td>
+					<td><p>{{r2.summary}}</p></td>
+					<td><p>{{r2.cvss_score}}</p></td>
+					<td><p>{{r2.publish_date}}</p></td>
+					<td><p>{{r2.update_date}}</p></td>
+					<td><p>{{r2.ConfidentialityImpact}}</p></td>
+					<td><p>{{r2.IntegrityImpact}}</p></td>
+					<td><p>{{r2.AvailabilityImpact}}</p></td>
+					<td><p>{{r2.AccessComplexity}}</p></td>
+					<td><p>{{r2.Authentication}}</p></td>
+					<td><p>{{r2.GainedAccess}}</p></td>
+					<td><p>{{r2.VulnerabilityTypes}}</p></td>
+				{% endfor %}
+		 
+		 	{% endfor %}
+			</tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+
 
 		</div>
 
