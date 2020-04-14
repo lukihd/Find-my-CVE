@@ -1,0 +1,163 @@
+@font-face
+{
+	font-family: "Lato";
+	src: url("./fonts/Lato/Louis-Bold.ttf");
+}
+
+@font-face
+{
+	font-family: "Bebas";
+	src: url("./fonts/Bebas/Bebas-Regular.ttf");
+}
+
+@font-face
+{
+	font-family: "Century Gothic";
+	src: url("./fonts/Century_Gothic/Century-Gothic_9791.ttf");
+}
+
+@font-face
+{
+	font-family: "Century Gothic";
+	font-weight: bold;
+	src: url("./fonts/Century_Gothic/Century-Gothic-Bold_9789.ttf");
+}
+
+@font-face
+{
+	font-family: "Century Gothic";
+	font-style: italic;
+	src: url("./fonts/Century_Gothic/Century-Gothic-Italic_9790.ttf");
+}
+
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	overflow-x: hidden;
+}
+
+.content
+{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #90EE90;
+}
+
+.CVE
+{
+	height: 80%;
+	width: 80%;
+	background-color: white;
+	display: flex;
+	position: fixed;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0.5em 0.5em 2em black;
+}
+
+.head_CVE
+{
+	height: 30%;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+}
+
+.head_CVE > h1
+{
+	font-family: 'Century Gothic', sans-serif;
+	font-weight: bold;
+	font-size: 3em;
+	margin-bottom: 0;
+}
+
+.head_CVE > p
+{
+	font-family: 'Century Gothic', sans-serif;
+	font-size: 1.4em;
+	margin: 0;
+}
+
+form
+{
+	height: 25%;
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+label
+{
+	font-family: 'Lato', sans-serif;
+	font-size: 1.2em
+}
+
+#envoyer
+{
+	font-family: 'Century Gothic', sans-serif;
+	font-size: 1.4em;
+	color: #FF8C00;
+	width: 100%;
+}
+
+.content_CVE
+{
+	height: 80%;
+	width: 80%;
+	background-color: white;
+	display: flex;
+	position: fixed;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0.5em 0.5em 2em black;
+}
+
+.CVE_treat
+{
+	height: 90%;
+	width: 95%;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+}
+
+.CVE_treat > h1
+{
+	font-family: 'Century Gothic', sans-serif;
+	font-size: 1.8em;
+	font-weight: bold;
+	line-height: 0.8em;
+	margin-top: 10px;
+	color: #FF8C00;
+}
+
+.CVE_treat > p
+{
+	font-family: 'Lato', sans-serif;
+	font-size: 1em;
+	color: black;
+	margin-top: 0;
+}
+
+
+
+
+
+
+
+

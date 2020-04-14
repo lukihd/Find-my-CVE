@@ -1,18 +1,44 @@
-<!doctype html>
-<title>Find my CVE</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Find my CVE</title>
+	<link type="text/css" rel="stylesheet" href="../static/assets/style.css" />
+</head>
 <body>
-<section class="content">
-  <h1 class="results">Find my CVE</h1>>
-  
-  <form method="POST">
-    <ul style="list-style-type: none;">
-      <li><input type="checkbox"> JS</li>
-      <li><input type="checkbox"> PHP</li>
-      <li><input type="checkbox"> Python</li>
-      <li><input type="checkbox"> Java</li>
-      <input type="submit" name="submit" placeholder="Submit"/>
-    </ul>
-  </form>
-</section>
+
+	<section class="content">
+
+		<div class="CVE">
+			
+			<div class="head_CVE">
+
+				<h1>Find my CVE</h1>
+
+				<p>Cochez sur les technos que vous voulez évaluer</p>
+
+			</div>
+
+			<form method="POST">
+				
+				<a>
+					<input type="checkbox" name="search" id="openssl" value="OpenSSL"/> <label for="openssl">OpenSSL</label> <br/>
+				</a>
+				<a>
+					<input type="checkbox" name="Apache HTTP Server" id="apache" value="Apache HTTP Server"/> <label for="apache">Apache HTTP Server</label> <br/>
+        </a>
+        <a>
+					<input type="checkbox" name="search" id="Heartbeat" value="SoundCloud"/> <label for="Heartbeat">SoundCloud</label> <br/>
+				</a>
+				<a>
+					<input type="submit" value="Envoyer" id="envoyer" />
+				</a>
+
+			</form>
+
+		</div>
+
+	</section>
+
 </body>
+</html>

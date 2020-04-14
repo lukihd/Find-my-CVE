@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Find my CVE</title>
+	<link type="text/css" rel="stylesheet" href="../static/assets/style.css" />
+</head>
+<body>
+
+	<section class="content">
+
+		<div class="content_CVE">
+
+			<div class="CVE_treat">
+                {% for r in results %}
+                   {% for r2 in r %}
+                        <h1>{{r2.cve_id}}</h1>
+                        <p>{{r2.summary}}</p>
+                   {% endfor %}
+                
+                {% endfor %}
+
+             
+
+			</div>
+
+		</div>
+
+	</section>
+
+</body>
+</html>
