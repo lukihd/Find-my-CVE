@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 
 client = MongoClient("mongodb://root:password@mongodb:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false")
-db=client.findmycve
+db=client.find_my_cve
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
@@ -20,12 +20,12 @@ def get_CVE_by_techno(query):
     results=list()
     for q in query:
         print(q)
-        res=list(db.reviews.find({ 'summary': {'$regex': q}}))
+        res=list(db.cve.find({"$or":[ {'summary': {'$regex': q}}, {"description": {"$regex" : q}}]} ))
         results.append(res)
     return results
 
 def get_all():
-    res=list(db.reviews.find())
+    res=list(db.cve.find())
     return res
 
 if __name__ == "__main__":

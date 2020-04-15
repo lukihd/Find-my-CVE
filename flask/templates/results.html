@@ -42,17 +42,41 @@
 				<tr>
 					<h1><td>{{r2.cve_id}}</td></h1>
 					<td><p>{{r2.cwe_id}}</p></td>
-					<td><p>{{r2.summary}}</p></td>
-					<td><p>{{r2.cvss_score}}</p></td>
+					<td><p>{% if (r2.summary) %}
+						{{r2.summary}}
+						{% else %}
+						{{r2.description}}
+					{% endif %}</p></td>
+					<td><p>{% if (r2.cvss_score) %}
+						{{r2.cvss_score}}
+						{% else %}
+						{{r2.score}}
+					{% endif %} </p></td>
 					<td><p>{{r2.publish_date}}</p></td>
 					<td><p>{{r2.update_date}}</p></td>
-					<td><p>{{r2.ConfidentialityImpact}}</p></td>
-					<td><p>{{r2.IntegrityImpact}}</p></td>
-					<td><p>{{r2.AvailabilityImpact}}</p></td>
-					<td><p>{{r2.AccessComplexity}}</p></td>
-					<td><p>{{r2.Authentication}}</p></td>
-					<td><p>{{r2.GainedAccess}}</p></td>
-					<td><p>{{r2.VulnerabilityTypes}}</p></td>
+					<td><p>{{r2.confidentiality_impact}}</p></td>
+					<td><p>{{r2.integrity_impact}}</p></td>
+					<td><p>{% if (r2.availibity_impact) %}
+						{{r2.availibity_impact}}
+						{% else %}
+						{{r2.availability_impact}}
+					{% endif %}</p></td>
+					<td><p>{{r2.access_complexity}}</p></td>
+					<td><p>{% if (r2.authentification) %}
+						{{r2.authentification}}
+						{% else %}
+						{{r2.authentication}}
+					{% endif %}</p></td>
+					<td><p>{% if (r2.gained_access) %}
+						{{r2.gained_access}}
+						{% else %}
+						{{r2.gained_access_level}}
+					{% endif %}</p></td>
+					<td><p>{% if (r2.vulnerability_types) %}
+						{{r2.vulnerability_types}}
+						{% else %}
+						{{r2.vulnerability_type}}
+					{% endif %}</p></td>
 				{% endfor %}
 		 
 		 	{% endfor %}
